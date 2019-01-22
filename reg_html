@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# a simple script to search for a string in a given folder and keep the colours for html
+# TBD: make it possible to pass different flags to grep
+
+# OPTION=${1:-'""'}
+REGEX=$1
+FOLDER=$2
+FILENAME=$3
+
+egrep -r -C1 --exclude="*.html" --color=always "$REGEX" "$FOLDER" | aha | sed '1,3d' > ~/Documents/Turoyo/html/"$FILENAME".html
